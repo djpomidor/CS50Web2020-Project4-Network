@@ -1,0 +1,3 @@
+Post.objects.filter(likes__id=1).count()
+posts = Post.objects.annotate(Count('likes'))
+	post.likes__count

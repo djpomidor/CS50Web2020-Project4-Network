@@ -1,4 +1,4 @@
 python manage.py makemigrations network
-pouse
+pause
 python manage.py migrate
-pouse
+pause

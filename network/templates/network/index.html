@@ -1,19 +1,23 @@
 {% extends "network/layout.html" %}
 
 {% block body %}
-<h1>All posts</h1>
-<div class="border">
-    <form id="new_post" method="post">
+{% load static %}
+
+{% if user.is_authenticated %}
+      <br>
+<button id="btn_add_new_post" class="btn btn-primary btn-sm" type="button" name="button" onclick="addNewPost()">Add new post</button>
+<div id="add_new_post" class="border rounded">
+    <form id="new_post" action="{% url 'create-post' %}" method="post">
       {% csrf_token %}
       <div class="form-group">
         <h3>New Post</h3>
-        <textarea class="form-control" id="newPostTextarea" rows="3"></textarea>
+        <textarea class="form-control" id="newPostTextarea" name="post" rows="3"></textarea>
         <button type="submit" class="btn btn-primary">Post</button>
       </div>
     </form>
 </div>
-<div id="posts-view" class="">
-  
 
-</div>
+{% include 'network/posts.html' %}
+
+{% endif %}
 {% endblock %}

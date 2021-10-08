@@ -1,3 +1,9 @@
 .border{
   padding: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#add_new_post {
+  display: none;
 }
