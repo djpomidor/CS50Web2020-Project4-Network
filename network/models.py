@@ -19,4 +19,4 @@ class Post(models.Model):
         return self.likes.all().count() - self.unlikes.all().count()
 
     def __str__(self):
-        return f"{self.post}"
+        return f"{self.user} {self.post} {self.created}"

@@ -143,7 +143,7 @@ def following(request):
     posts = paginator.get_page(page_number)
     return render(request, "network/index.html", {
         "posts": posts,
-        "header": "All posts from users that I follow"
+        "header": "All posts from users I follow"
     })
 
 @csrf_exempt

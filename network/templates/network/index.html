@@ -4,7 +4,7 @@
 {% load static %}
 
 {% if user.is_authenticated %}
-      <br>
+<br>
 <button id="btn_add_new_post" class="btn btn-primary btn-sm" type="button" name="button" onclick="addNewPost()">Add new post</button>
 <div id="add_new_post" class="border rounded">
     <form id="new_post" action="{% url 'create-post' %}" method="post">
