@@ -13,7 +13,7 @@ from network.models import *
 
 def index(request):
     posts_list = Post.objects.all().order_by("-created")
-    paginator = Paginator(posts_list, 5) # Show 5 contacts per page.
+    paginator = Paginator(posts_list, 10) # Show 10 contacts per page.
     page_number = request.GET.get('page')
     posts = paginator.get_page(page_number)
     return render(request, "network/index.html", {
@@ -91,7 +91,7 @@ def create_post(request):
 def user_profile(request, username):
     user_info = User.objects.get(username = username)
     user_posts = Post.objects.filter(user_id = user_info.id).order_by("-created")
-    paginator = Paginator(user_posts, 5) # Show 5 contacts per page.
+    paginator = Paginator(user_posts, 10) # Show 10 contacts per page.
     page_number = request.GET.get('page')
     posts = paginator.get_page(page_number)
     return render(request, "network/profile.html", {
@@ -138,7 +138,7 @@ def follow(request, user_id):
 @login_required(redirect_field_name='index')
 def following(request):
     posts_list = Post.objects.filter(user__followers__id=request.user.id).order_by("-created")
-    paginator = Paginator(posts_list, 5) # Show 5 contacts per page.
+    paginator = Paginator(posts_list, 10) # Show 10 contacts per page.
     page_number = request.GET.get('page')
     posts = paginator.get_page(page_number)
     return render(request, "network/index.html", {
